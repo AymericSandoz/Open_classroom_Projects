@@ -2,30 +2,70 @@ header {
     @include centrer_elements;
 }
 
-.localisation {
-    @include centrer_elements;
-    background-color: #B9B3B3;
+.introduction {
+    @include centrer_elements_colomnes;
 }
 
-.explore {
+.localisation {
+    width: 100%;
+    height: 40px;
     @include centrer_elements;
-    flex-direction: column;
-    h3 {
-        text-align: center;
+    background-color: #B9B3B3;
+    font-size: 20px;
+    i {
+        width: 10%;
     }
     p {
         font-weight: bold;
+    }
+}
+
+.explore {
+    background-color: $couleur_gris_claire;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 10% 0px 10%;
+    h3 {
+        text-align: center;
+        font-size: 1.8em;
+        margin-top: 40px;
+    }
+    p {
+        margin-top: 20px;
         text-align: center;
     }
     button {
         text-align: center;
-        width: 70%;
-        height: 70%;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        padding: 0;
     }
 }
 
 .Fonctionnement {
-    display: flex;
+    @include centrer_elements;
     flex-direction: column;
-    align-items: flex-start;
+    h2 {
+        align-self: flex-start;
+    }
+}
+
+.Restaurants {
+    background-color: $couleur_gris_claire;
+    @include centrer_elements_colomnes;
+    width: 100%;
+    margin: auto;
+    margin-top: 50px;
+    padding-top: 80px;
+    padding-bottom: 50px;
+    h2 {
+        width: 90%;
+        text-align: start;
+    }
+    i {
+        position: absolute;
+        left: 80%;
+    }
 }

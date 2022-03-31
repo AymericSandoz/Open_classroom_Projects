@@ -1,0 +1,74 @@
+/*Spinner page acceuil*/
+
+$duree_spinner: 1.5s;
+$nbre_iteration_animation:2;
+$delai_chargement_page:$nbre_iteration_animation*$duree_spinner;
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.5);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+.spin::after {
+    animation: $duree_spinner linear spinner;
+    animation-iteration-count: $nbre_iteration_animation;
+    animation-fill-mode: none;
+    border: solid 5px #cfd0d1;
+    border-bottom-color: $couleur_primaire;
+    border-top-color: $couleur_secondaire;
+    border-left-color: $couleur_tertiaire;
+    border-radius: 50%;
+    transform: scale(0); //pour que le spinner disparaisse après chargement 
+    content: "";
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+@keyframes acceuil_spinner {
+    0% {
+        transform: translateX(-9999px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.page_Acceuil {
+    animation: acceuil_spinner 0ms $delai_chargement_page both;
+}
+
+
+/*Like*/
+
+@keyframes coeur {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.coeur__aRemplir {
+    opacity: 0; //ne pas afficher le coeur avant le début de l'animation
+    &:hover {
+        animation: coeur 500ms ease-in-out;
+        animation-fill-mode: forwards; //Faire en sorte que le coeur reste après la fin de l'animation
+        /*Couleur degradé pour les îcones(Rien compris)*/
+        background: -webkit-gradient(linear, left top, left bottom, from($couleur_secondaire), to($couleur_primaire));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+
+/*Boutton qui s'eclaicisse et border shadow qui augmente*/

@@ -7,3 +7,16 @@
     justify-content: center;
     align-items: center;
 }
+
+@mixin centrer_elements_colomnes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+@mixin position_bas_droite {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+}

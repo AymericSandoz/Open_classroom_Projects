@@ -1,8 +1,98 @@
 .btn__fonctionnement {
     background-color: $couleur_gris_claire;
-    border-radius: 20px;
-    border: blue;
+    border-radius: 10%;
+    border: none;
     width: 95%;
     height: 50px;
     margin: 10px 0px 10px 0px;
+    box-shadow: 5px 5px 10px $couleur_box_shadow_grise;
+    &__contenu {
+        display: grid;
+        grid-template-columns: 1fr 1fr 6fr 2fr;
+        align-items: center;
+        position: relative;
+        right: 5%;
+    }
+    /*Voir section icône pour le nombre */
+    i {
+        font-size: 15px;
+    }
+    p {
+        font-weight: bold;
+        font-size: 15px;
+    }
+    &:hover {
+        transition: 300ms ease-in-out;
+        filter: brightness(103%);
+        box-shadow: 5px 5px 10px darken($color: $couleur_box_shadow_grise, $amount: 30);
+    }
+}
+
+.btn__explorer {
+    border-radius: 25px;
+    border: none;
+    width: 70%;
+    height: 60px;
+    margin: auto;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    &--violet_degrade {
+        background: linear-gradient(175deg, $couleur_secondaire, $couleur_primaire);
+    }
+    &:hover {
+        transition: 300ms ease-in-out;
+        filter: brightness(115%);
+    }
+}
+
+.Menu button {
+    background-color: white;
+    border-radius: 20px;
+    width: 90%;
+    height: 60px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+    box-shadow: 10px 10px 20px $couleur_box_shadow_grise;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    p {
+        font-size: 1.1em;
+        text-align: left;
+        padding: 5px;
+    }
+    p:first-child {
+        font-weight: bold;
+        font-size: 1.3em;
+    }
+    .prix {
+        @include position_bas_droite;
+        font-weight: bold;
+    }
+    &:hover {
+        transition: 300ms ease-in-out;
+        filter: brightness(105%);
+        box-shadow: 10px 10px 20px darken($color: $couleur_box_shadow_grise, $amount: 30);
+    }
+}
+
+.btn__commander {
+    width: 60%;
+    height: 50px;
+    border-radius: 25px;
+    border: none;
+    margin: auto;
+    margin-top: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    @include centrer_elements;
+    background: linear-gradient(175deg, $couleur_secondaire, $couleur_primaire);
+    &:hover {
+        transition: 300s ease-in-out;
+        filter: brightness(115%);
+    }
 }
