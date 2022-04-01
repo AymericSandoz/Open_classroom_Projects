@@ -1,4 +1,17 @@
 .Menu_Restaurants {
+    /*Apparition progressive des cartes du restaurants
+    Pas la solution optimum mais pas réussis autrement*/
+    button {
+        animation: menuApparition ease-in-out both;
+        animation-duration: 1000ms;
+        transform: scale(0);
+        transform-origin: top;
+    }
+    @for $i from 1 to 10 {
+        .apparition_delai-#{$i} {
+            animation-delay: #{$i/5}s;
+        }
+    }
     .Nom_restaurant {
         display: flex;
         justify-content: space-between;

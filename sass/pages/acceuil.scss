@@ -48,7 +48,8 @@ header {
     @include centrer_elements;
     flex-direction: column;
     h2 {
-        align-self: flex-start;
+        width: 90%;
+        text-align: start;
     }
 }
 
@@ -58,7 +59,7 @@ header {
     width: 100%;
     margin: auto;
     margin-top: 50px;
-    padding-top: 80px;
+    padding-top: 50px;
     padding-bottom: 50px;
     h2 {
         width: 90%;

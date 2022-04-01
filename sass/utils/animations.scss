@@ -3,6 +3,7 @@
 $duree_spinner: 1.5s;
 $nbre_iteration_animation:2;
 $delai_chargement_page:$nbre_iteration_animation*$duree_spinner;
+$spinner_size:100px;
 @keyframes spinner {
     0% {
         transform: rotate(0deg);
@@ -26,11 +27,14 @@ $delai_chargement_page:$nbre_iteration_animation*$duree_spinner;
     border-radius: 50%;
     transform: scale(0); //pour que le spinner disparaisse après chargement 
     content: "";
-    height: 100px;
-    width: 100px;
+    height: $spinner_size;
+    width: $spinner_size;
+    /*Positionner le bloc au centre + ne pas gener la page ensuite*/
     position: absolute;
+    margin: auto;
     top: 50%;
     left: 50%;
+    margin-left: calc(-1*$spinner_size/2); //la moitié de la taille du spinner//marche pas
 }
 
 @keyframes acceuil_spinner {
@@ -71,4 +75,82 @@ $delai_chargement_page:$nbre_iteration_animation*$duree_spinner;
 }
 
 
-/*Boutton qui s'eclaicisse et border shadow qui augmente*/
+/*Selection d'un plat*/
+
+.Menu button {
+    .Selection_plat {
+        height: 100%;
+        grid-column: 2;
+        grid-row-start: 1;
+        grid-row-end: 3; //je sais pas pourquoi mais 2 ça marche pas 
+        background-color: $couleur_tertiaire;
+        color: white;
+        opacity: 0;
+        /*Faire en sorte que le check vert soit bien positionné, ne laisse pas de blanc et ne dépasse pas*/
+        overflow: hidden;
+        position: relative;
+        top: -1px;
+        width: 110%;
+        height: 110%;
+        i {
+            font-size: 2rem;
+            padding-top: 12px;
+        }
+    }
+    &:hover>.Selection_plat {
+        animation: plat_selection_apparition 1s linear forwards;
+        transform-origin: right;
+    }
+    &:hover>.Selection_plat i {
+        animation: plat_selection_turn 1s linear forwards;
+    }
+}
+
+@keyframes plat_selection_apparition {
+    0% {
+        opacity: 1;
+        transform: scaleX(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+}
+
+@keyframes plat_selection_turn {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes text_ellipsis_1 {
+    0% {
+        width: 100%;
+    }
+    100% {
+        width: 80%;
+    }
+}
+
+@keyframes menu_apparition {
+    0% {
+        opacity: 1;
+        transform: scaleY(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}
+
+@keyframes menuApparition {
+    0% {
+        transform: scale(0)
+    }
+    100% {
+        transform: scale(1)
+    }
+}

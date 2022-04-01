@@ -2,7 +2,7 @@
     background-color: $couleur_gris_claire;
     border-radius: 10%;
     border: none;
-    width: 95%;
+    width: 90%;
     height: 50px;
     margin: 10px 0px 10px 0px;
     box-shadow: 5px 5px 10px $couleur_box_shadow_grise;
@@ -55,22 +55,41 @@
     margin-bottom: 10px;
     border: none;
     box-shadow: 10px 10px 20px $couleur_box_shadow_grise;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-auto-rows: 1fr 1fr;
+    overflow: hidden; //enlever la partie du bouton vert qui dépasse
     p {
-        font-size: 1.1em;
+        max-height: 30px;
+        font-size: 15px;
         text-align: left;
         padding: 5px;
+        white-space: nowrap; //ne pas revenir a la ligne
     }
     p:first-child {
         font-weight: bold;
-        font-size: 1.3em;
+        font-size: 18px;
+    }
+    .accompagnement {
+        grid-column: 1;
+        grid-row: 2;
     }
     .prix {
-        @include position_bas_droite;
+        width: 100%;
+        height: 100%;
+        text-align: right;
+        grid-column: 2;
+        grid-row: 2;
         font-weight: bold;
+    }
+    &:hover>.prix {
+        transform: translateX(-100%);
+        transition: 1s linear;
+    }
+    &:hover>.accompagnement {
+        animation: text_ellipsis_1 1s linear forwards;
+        text-overflow: ellipsis; //ne fonctionne pas encore
+        overflow: hidden;
     }
     &:hover {
         transition: 300ms ease-in-out;
@@ -92,7 +111,7 @@
     @include centrer_elements;
     background: linear-gradient(175deg, $couleur_secondaire, $couleur_primaire);
     &:hover {
-        transition: 300s ease-in-out;
+        transition: 300Ms ease-in-out;
         filter: brightness(115%);
     }
 }

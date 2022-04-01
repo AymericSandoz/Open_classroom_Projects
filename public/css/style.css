@@ -25,9 +25,12 @@
   content: "";
   height: 100px;
   width: 100px;
+  /*Positionner le bloc au centre + ne pas gener la page ensuite*/
   position: absolute;
+  margin: auto;
   top: 50%;
   left: 50%;
+  margin-left: -50px;
 }
 
 @keyframes acceuil_spinner {
@@ -63,7 +66,78 @@
   -webkit-text-fill-color: transparent;
 }
 
-/*Boutton qui s'eclaicisse et border shadow qui augmente*/
+/*Selection d'un plat*/
+.Menu button .Selection_plat {
+  height: 100%;
+  grid-column: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  background-color: #99E2D0;
+  color: white;
+  opacity: 0;
+  /*Faire en sorte que le check vert soit bien positionné, ne laisse pas de blanc et ne dépasse pas*/
+  overflow: hidden;
+  position: relative;
+  top: -1px;
+  width: 110%;
+  height: 110%;
+}
+.Menu button .Selection_plat i {
+  font-size: 2rem;
+  padding-top: 12px;
+}
+.Menu button:hover > .Selection_plat {
+  animation: plat_selection_apparition 1s linear forwards;
+  transform-origin: right;
+}
+.Menu button:hover > .Selection_plat i {
+  animation: plat_selection_turn 1s linear forwards;
+}
+
+@keyframes plat_selection_apparition {
+  0% {
+    opacity: 1;
+    transform: scaleX(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+@keyframes plat_selection_turn {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes text_ellipsis_1 {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 80%;
+  }
+}
+@keyframes menu_apparition {
+  0% {
+    opacity: 1;
+    transform: scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+@keyframes menuApparition {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 a {
   text-decoration: none;
 }
@@ -117,7 +191,7 @@ Header img {
   background-color: #f6f6f6;
   border-radius: 10%;
   border: none;
-  width: 95%;
+  width: 90%;
   height: 50px;
   margin: 10px 0px 10px 0px;
   box-shadow: 5px 5px 10px #e7e2e2;
@@ -170,25 +244,42 @@ Header img {
   margin-bottom: 10px;
   border: none;
   box-shadow: 10px 10px 20px #e7e2e2;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 80% 20%;
+  grid-auto-rows: 1fr 1fr;
+  overflow: hidden;
 }
 .Menu button p {
-  font-size: 1.1em;
+  max-height: 30px;
+  font-size: 15px;
   text-align: left;
   padding: 5px;
+  white-space: nowrap;
 }
 .Menu button p:first-child {
   font-weight: bold;
-  font-size: 1.3em;
+  font-size: 18px;
+}
+.Menu button .accompagnement {
+  grid-column: 1;
+  grid-row: 2;
 }
 .Menu button .prix {
-  position: absolute;
-  bottom: 5%;
-  right: 5%;
+  width: 100%;
+  height: 100%;
+  text-align: right;
+  grid-column: 2;
+  grid-row: 2;
   font-weight: bold;
+}
+.Menu button:hover > .prix {
+  transform: translateX(-100%);
+  transition: 1s linear;
+}
+.Menu button:hover > .accompagnement {
+  animation: text_ellipsis_1 1s linear forwards;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .Menu button:hover {
   transition: 300ms ease-in-out;
@@ -212,7 +303,7 @@ Header img {
   background: linear-gradient(175deg, #FF79DA, #9356DC);
 }
 .btn__commander:hover {
-  transition: 300s ease-in-out;
+  transition: 300Ms ease-in-out;
   filter: brightness(115%);
 }
 
@@ -343,7 +434,8 @@ header {
   flex-direction: column;
 }
 .Fonctionnement h2 {
-  align-self: flex-start;
+  width: 90%;
+  text-align: start;
 }
 
 .Restaurants {
@@ -355,7 +447,7 @@ header {
   width: 100%;
   margin: auto;
   margin-top: 50px;
-  padding-top: 80px;
+  padding-top: 50px;
   padding-bottom: 50px;
 }
 .Restaurants h2 {
@@ -368,6 +460,8 @@ header {
 }
 
 .Menu_Restaurants {
+  /*Apparition progressive des cartes du restaurants
+  Pas la solution optimum mais pas réussis autrement*/
   display: flex;
   justify-content: center;
   align-items: center;
@@ -378,6 +472,39 @@ header {
   border-radius: 5% 5% 0 0;
   margin-top: 200px;
   padding-bottom: 70px;
+}
+.Menu_Restaurants button {
+  animation: menuApparition ease-in-out both;
+  animation-duration: 1000ms;
+  transform: scale(0);
+  transform-origin: top;
+}
+.Menu_Restaurants .apparition_delai-1 {
+  animation-delay: 0.2s;
+}
+.Menu_Restaurants .apparition_delai-2 {
+  animation-delay: 0.4s;
+}
+.Menu_Restaurants .apparition_delai-3 {
+  animation-delay: 0.6s;
+}
+.Menu_Restaurants .apparition_delai-4 {
+  animation-delay: 0.8s;
+}
+.Menu_Restaurants .apparition_delai-5 {
+  animation-delay: 1s;
+}
+.Menu_Restaurants .apparition_delai-6 {
+  animation-delay: 1.2s;
+}
+.Menu_Restaurants .apparition_delai-7 {
+  animation-delay: 1.4s;
+}
+.Menu_Restaurants .apparition_delai-8 {
+  animation-delay: 1.6s;
+}
+.Menu_Restaurants .apparition_delai-9 {
+  animation-delay: 1.8s;
 }
 .Menu_Restaurants .Nom_restaurant {
   display: flex;
