@@ -34,7 +34,7 @@ $spinner_size:100px;
     margin: auto;
     top: 50%;
     left: 50%;
-    margin-left: calc(-1*$spinner_size/2); //la moitié de la taille du spinner//marche pas
+    margin-left: calc(-1*$spinner_size/2);
 }
 
 @keyframes acceuil_spinner {

@@ -167,14 +167,19 @@ footer img {
 header a {
   color: black;
   position: relative;
-  right: 10%;
+  right: 15%;
   bottom: 5px;
-  font-size: 30px;
+  font-size: 1.5em;
 }
 
 Header img {
   width: 50%;
   margin-bottom: 10px;
+}
+@media screen and (min-width: 950px) {
+  Header img {
+    width: 30%;
+  }
 }
 
 .logo--blanc {
@@ -187,6 +192,11 @@ Header img {
   z-index: -1;
 }
 
+button,
+i {
+  cursor: pointer;
+}
+
 .btn__fonctionnement {
   background-color: #f6f6f6;
   border-radius: 10%;
@@ -196,6 +206,11 @@ Header img {
   margin: 10px 0px 10px 0px;
   box-shadow: 5px 5px 10px #e7e2e2;
   /*Voir section icône pour le nombre */
+}
+@media screen and (min-width: 950px) {
+  .btn__fonctionnement {
+    width: 30%;
+  }
 }
 .btn__fonctionnement__contenu {
   display: grid;
@@ -218,21 +233,28 @@ Header img {
 }
 
 .btn__explorer {
-  border-radius: 25px;
+  border-radius: 50px;
   border: none;
   width: 70%;
+  padding: 10px;
   height: 60px;
   margin: auto;
   color: white;
-  font-weight: bold;
-  font-size: large;
+  font-size: 1em;
+  box-shadow: 5px 5px 10px gray;
+}
+@media screen and (min-width: 950px) {
+  .btn__explorer {
+    width: 30%;
+  }
 }
 .btn__explorer--violet_degrade {
   background: linear-gradient(175deg, #FF79DA, #9356DC);
 }
 .btn__explorer:hover {
-  transition: 300ms ease-in-out;
-  filter: brightness(115%);
+  transition: 400ms ease-in-out;
+  filter: brightness(105%);
+  box-shadow: 5px 5px 10px #343434;
 }
 
 .Menu button {
@@ -251,18 +273,20 @@ Header img {
 }
 .Menu button p {
   max-height: 30px;
-  font-size: 15px;
   text-align: left;
   padding: 5px;
   white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .Menu button p:first-child {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 1.2em;
 }
 .Menu button .accompagnement {
   grid-column: 1;
   grid-row: 2;
+  font-size: 1em;
 }
 .Menu button .prix {
   width: 100%;
@@ -288,19 +312,23 @@ Header img {
 }
 
 .btn__commander {
-  width: 60%;
+  width: 50%;
   height: 50px;
   border-radius: 25px;
   border: none;
   margin: auto;
   margin-top: 20px;
   color: white;
-  font-weight: bold;
-  font-size: large;
+  font-size: 1em;
   display: flex;
   justify-content: center;
   align-items: center;
   background: linear-gradient(175deg, #FF79DA, #9356DC);
+}
+@media screen and (min-width: 950px) {
+  .btn__commander {
+    width: 30%;
+  }
 }
 .btn__commander:hover {
   transition: 300Ms ease-in-out;
@@ -332,8 +360,14 @@ Header img {
   margin: 0px auto;
   margin-top: 10px;
   margin-bottom: 10px;
-  border-radius: 10%;
+  border-radius: 5%;
   background-color: white;
+}
+@media screen and (min-width: 950px) {
+  .cartes__restaurants {
+    height: 400px;
+    width: 45%;
+  }
 }
 .cartes__restaurants a {
   height: 100%;
@@ -347,7 +381,21 @@ Header img {
   /*2*/
   overflow: hidden;
   /*3*/
-  border-radius: 10% 10% 0% 0%;
+  border-radius: 5% 5% 0% 0%;
+}
+.cartes__restaurants .carte-image .pancarte_nouveau {
+  position: absolute;
+  top: 8%;
+  right: 6%;
+  width: 100px;
+  height: 30px;
+  z-index: 2;
+  color: green;
+  background-color: #99E2D0;
+  text-align: center;
+  padding-top: 5px;
+  border-radius: 5%;
+  font-weight: 600;
 }
 .cartes__restaurants img {
   width: 100%;
@@ -363,13 +411,21 @@ Header img {
 .cartes__restaurants .carte-corp {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 20%;
   color: black;
+  position: relative;
 }
 .cartes__restaurants .carte-corp__titre {
   padding-left: 3%;
 }
+.cartes__restaurants .carte-corp__titre h4 {
+  font-weight: normal;
+}
 .cartes__restaurants .carte-corp i {
-  padding-right: 5%;
+  position: absolute;
+  left: 85%;
   align-self: center;
   font-size: 30px;
 }
@@ -389,18 +445,16 @@ header {
 
 .localisation {
   width: 100%;
-  height: 40px;
+  height: 55px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #B9B3B3;
-  font-size: 20px;
+  background-color: #E8E8E7;
+  border-top: #E5E5E3 2px inset;
+  font-size: 1.2em;
 }
 .localisation i {
-  width: 10%;
-}
-.localisation p {
-  font-weight: bold;
+  width: 30px;
 }
 
 .explore {
@@ -409,7 +463,8 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0px 10% 0px 10%;
+  padding: 0px 10% 40px 10%;
+  width: 100%;
 }
 .explore h3 {
   text-align: center;
@@ -419,6 +474,8 @@ header {
 .explore p {
   margin-top: 20px;
   text-align: center;
+  color: gray;
+  font-size: 1.1em;
 }
 .explore button {
   text-align: center;
@@ -427,15 +484,22 @@ header {
   padding: 0;
 }
 
-.Fonctionnement {
+.Fonctionnement h2 {
+  margin-top: 40px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+.Fonctionnement .Fonctionnement_boutons {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-.Fonctionnement h2 {
-  width: 90%;
-  text-align: start;
+@media screen and (min-width: 950px) {
+  .Fonctionnement .Fonctionnement_boutons {
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }
 
 .Restaurants {
@@ -450,18 +514,19 @@ header {
   padding-top: 50px;
   padding-bottom: 50px;
 }
+@media screen and (min-width: 950px) {
+  .Restaurants {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
 .Restaurants h2 {
   width: 90%;
   text-align: start;
 }
-.Restaurants i {
-  position: absolute;
-  left: 80%;
-}
 
 .Menu_Restaurants {
-  /*Apparition progressive des cartes du restaurants
-  Pas la solution optimum mais pas réussis autrement*/
+  /*Apparition progressive des cartes du restaurants*/
   display: flex;
   justify-content: center;
   align-items: center;
@@ -469,7 +534,7 @@ header {
   margin: auto;
   width: 100%;
   background-color: #f6f6f6;
-  border-radius: 5% 5% 0 0;
+  border-radius: 40px 40px 0 0;
   margin-top: 200px;
   padding-bottom: 70px;
 }
@@ -509,18 +574,44 @@ header {
 .Menu_Restaurants .Nom_restaurant {
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width: 90%;
   align-items: center;
-  margin-bottom: 20px;
+  margin-top: 30px;
+}
+@media screen and (min-width: 950px) {
+  .Menu_Restaurants .Nom_restaurant {
+    width: 20%;
+    justify-content: center;
+  }
 }
 .Menu_Restaurants .Nom_restaurant h2 {
   font-family: "Shrikhand";
-  font-size: 30px;
+  font-size: 2em;
 }
 .Menu_Restaurants .Nom_restaurant i {
   font-size: 30px;
   position: absolute;
-  left: 80%;
+  left: 83%;
+}
+@media screen and (min-width: 950px) {
+  .Menu_Restaurants .Nom_restaurant i {
+    left: 65%;
+  }
+}
+@media screen and (min-width: 950px) {
+  .Menu_Restaurants {
+    margin-top: 600px;
+  }
+}
+@media screen and (min-width: 750px) and (max-width: 950px) {
+  .Menu_Restaurants {
+    margin-top: 400px;
+  }
+}
+@media screen and (min-width: 950px) {
+  .Menu_Restaurants .Menu {
+    flex-direction: row;
+  }
 }
 .Menu_Restaurants section {
   display: flex;

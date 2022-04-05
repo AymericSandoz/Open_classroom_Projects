@@ -1,8 +1,16 @@
+button,
+i {
+    cursor: pointer;
+}
+
 .btn__fonctionnement {
     background-color: $couleur_gris_claire;
     border-radius: 10%;
     border: none;
     width: 90%;
+    @include desktop-only {
+        width: 30%;
+    }
     height: 50px;
     margin: 10px 0px 10px 0px;
     box-shadow: 5px 5px 10px $couleur_box_shadow_grise;
@@ -29,20 +37,25 @@
 }
 
 .btn__explorer {
-    border-radius: 25px;
+    border-radius: 50px;
     border: none;
     width: 70%;
+    padding: 10px;
+    @include desktop-only {
+        width: 30%;
+    }
     height: 60px;
     margin: auto;
     color: white;
-    font-weight: bold;
-    font-size: large;
+    font-size: 1em;
+    box-shadow: 5px 5px 10px gray;
     &--violet_degrade {
         background: linear-gradient(175deg, $couleur_secondaire, $couleur_primaire);
     }
     &:hover {
-        transition: 300ms ease-in-out;
-        filter: brightness(115%);
+        transition: 400ms ease-in-out;
+        filter: brightness(105%);
+        box-shadow: 5px 5px 10px darken($color: gray, $amount: 30);
     }
 }
 
@@ -61,18 +74,20 @@
     overflow: hidden; //enlever la partie du bouton vert qui dépasse
     p {
         max-height: 30px;
-        font-size: 15px;
         text-align: left;
         padding: 5px;
         white-space: nowrap; //ne pas revenir a la ligne
+        text-overflow: ellipsis; //ne fonctionne pas encore
+        overflow: hidden;
     }
     p:first-child {
         font-weight: bold;
-        font-size: 18px;
+        font-size: 1.2em;
     }
     .accompagnement {
         grid-column: 1;
         grid-row: 2;
+        font-size: 1em;
     }
     .prix {
         width: 100%;
@@ -99,15 +114,17 @@
 }
 
 .btn__commander {
-    width: 60%;
+    width: 50%;
+    @include desktop-only {
+        width: 30%;
+    }
     height: 50px;
     border-radius: 25px;
     border: none;
     margin: auto;
     margin-top: 20px;
     color: white;
-    font-weight: bold;
-    font-size: large;
+    font-size: 1em;
     @include centrer_elements;
     background: linear-gradient(175deg, $couleur_secondaire, $couleur_primaire);
     &:hover {

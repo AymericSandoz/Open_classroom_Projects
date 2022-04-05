@@ -1,6 +1,5 @@
 .Menu_Restaurants {
-    /*Apparition progressive des cartes du restaurants
-    Pas la solution optimum mais pas réussis autrement*/
+    /*Apparition progressive des cartes du restaurants*/
     button {
         animation: menuApparition ease-in-out both;
         animation-duration: 1000ms;
@@ -15,26 +14,44 @@
     .Nom_restaurant {
         display: flex;
         justify-content: space-between;
-        width: 80%;
+        width: 90%;
         align-items: center;
-        margin-bottom: 20px;
+        margin-top: 30px;
+        @include desktop-only {
+            width: 20%;
+            justify-content: center;
+        }
         h2 {
             font-family: 'Shrikhand';
-            font-size: 30px;
+            font-size: 2em;
         }
         i {
             font-size: 30px;
             position: absolute;
-            left: 80%;
+            left: 83%;
+            @include desktop-only {
+                left: 65%;
+            }
         }
     }
     @include centrer_elements_colomnes;
     margin: auto;
     width: 100%;
     background-color: $couleur_gris_claire;
-    border-radius: 5% 5% 0 0;
+    border-radius: 40px 40px 0 0;
     margin-top: 200px;
+    @include desktop-only {
+        margin-top: 600px;
+    }
+    @include tablette-only {
+        margin-top: 400px;
+    }
     padding-bottom: 70px;
+    .Menu {
+        @include desktop-only {
+            flex-direction: row;
+        }
+    }
     section {
         @include centrer_elements_colomnes;
         width: 100%;
