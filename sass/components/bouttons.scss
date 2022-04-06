@@ -1,40 +1,59 @@
-button,
-i {
+/*Cursor de type pointer pour les bouttons*/
+
+button {
     cursor: pointer;
 }
 
+
+/*Bouttons de la partie fonctionnement*/
+
 .btn__fonctionnement {
-    background-color: $couleur_gris_claire;
-    border-radius: 10%;
-    border: none;
+    background-color: $couleur_gris_claire; //couleur de fond
+    border-radius: 10%; //Coin arrondies
+    border: none; //pas de bordure visible
     width: 90%;
     @include desktop-only {
-        width: 30%;
+        width: 30%; //Bouton qui ne prennent que 30% de la largeur pour la partie desktop
+        //Ils doivent tenir sur une ligne
     }
-    height: 50px;
+    height: 50px; //Hauteur fixe de 50px
     margin: 10px 0px 10px 0px;
     box-shadow: 5px 5px 10px $couleur_box_shadow_grise;
     &__contenu {
+        //Contenu correspond aux élements à l'interieur du bouton !! Va permettre de décaler le contenu vers la gauche 
         display: grid;
-        grid-template-columns: 1fr 1fr 6fr 2fr;
-        align-items: center;
-        position: relative;
-        right: 5%;
+        grid-template-columns: 10% 15% 60%; //Design idèle à la maquette
+        align-items: center; //Centrer les élements sur l'axe vertical
+        position: relative; //Permet que le nombre soit sur la bordure gauche du bouton
+        right: 5%; //Permet que le nombre soit sur la bordure gauche du bouton
+        @include tablette-only {
+            right: 3%;
+        }
     }
-    /*Voir section icône pour le nombre */
+    /*Voir section icône pour le style nombre */
     i {
         font-size: 15px;
     }
     p {
         font-weight: bold;
-        font-size: 15px;
+        font-size: 1.2em;
+        text-align: left;
+        white-space: nowrap; //ne pas revenir à la ligne
+        padding-left: 5%;
+        @include tablette-only {
+            padding-left: 10%;
+        }
     }
     &:hover {
-        transition: 300ms ease-in-out;
-        filter: brightness(103%);
-        box-shadow: 5px 5px 10px darken($color: $couleur_box_shadow_grise, $amount: 30);
+        //Effet de transition
+        transition: 400ms ease-in-out;
+        filter: brightness(103%); //Le bouton s'éclaircit au survol
+        box-shadow: 5px 5px 10px darken($color: $couleur_box_shadow_grise, $amount: 30); //Effet box shadow plus visible
     }
 }
+
+
+/*Bouton explorer*/
 
 .btn__explorer {
     border-radius: 50px;
@@ -42,22 +61,28 @@ i {
     width: 70%;
     padding: 10px;
     @include desktop-only {
-        width: 30%;
+        width: 30%; //Diminution de la taille du bouton en format desktop
     }
-    height: 60px;
-    margin: auto;
-    color: white;
+    height: 60px; //Hauteur fixe
+    margin: auto; //Centrer le bouton
+    color: white; //Police blanche
     font-size: 1em;
     box-shadow: 5px 5px 10px gray;
     &--violet_degrade {
+        //Couleur violet dégradé
         background: linear-gradient(175deg, $couleur_secondaire, $couleur_primaire);
     }
     &:hover {
+        //Effet de transition au survol du bouton
         transition: 400ms ease-in-out;
-        filter: brightness(105%);
-        box-shadow: 5px 5px 10px darken($color: gray, $amount: 30);
+        filter: brightness(105%); //Eclaircissement
+        box-shadow: 5px 5px 10px darken($color: gray, $amount: 30); //Effet box shadow plus marqué
     }
 }
+
+
+/*Les boutons du Menu 
+En réalité ce sont plus des cartes mais j'ai chosis d'en faire des boutons*/
 
 .Menu button {
     background-color: white;
@@ -68,28 +93,38 @@ i {
     margin-bottom: 10px;
     border: none;
     box-shadow: 10px 10px 20px $couleur_box_shadow_grise;
+    /*Display de type GRID
+    VA permettre de décaler les éléments progressivement grâce à une animation*/
     display: grid;
     grid-template-columns: 80% 20%;
     grid-auto-rows: 1fr 1fr;
     overflow: hidden; //enlever la partie du bouton vert qui dépasse
     p {
-        max-height: 30px;
+        max-height: 30px; //Ne pas agrandir la hauteur des paragraphes
         text-align: left;
         padding: 5px;
         white-space: nowrap; //ne pas revenir a la ligne
-        text-overflow: ellipsis; //ne fonctionne pas encore
+        text-overflow: ellipsis; //texte qui ne peut pas être affiché remplacé par "..."
         overflow: hidden;
     }
     p:first-child {
         font-weight: bold;
         font-size: 1.2em;
+        @media screen and (max-width: 300px) {
+            font-size: 0.9em; //Diminuer taille police pour tout petit écran
+        }
     }
     .accompagnement {
+        //positionnement de la partie accompagnement au sein de la GRID grâce à grid-colomn et grid-row
         grid-column: 1;
         grid-row: 2;
         font-size: 1em;
+        @media screen and (max-width: 300px) {
+            font-size: 0.7em; //Diminuer taille police pour tout petit écran
+        }
     }
     .prix {
+        //positionnement du prix.............""""
         width: 100%;
         height: 100%;
         text-align: right;
@@ -98,20 +133,57 @@ i {
         font-weight: bold;
     }
     &:hover>.prix {
+        //Au survol des bouton le prix se décale vers la gauche de 100%
         transform: translateX(-100%);
         transition: 1s linear;
     }
     &:hover>.accompagnement {
         animation: text_ellipsis_1 1s linear forwards;
-        text-overflow: ellipsis; //ne fonctionne pas encore
+        text-overflow: ellipsis;
         overflow: hidden;
     }
     &:hover {
+        //Style des boutons au survol
         transition: 300ms ease-in-out;
-        filter: brightness(105%);
-        box-shadow: 10px 10px 20px darken($color: $couleur_box_shadow_grise, $amount: 30);
+        filter: brightness(105%); //Eclaircit
+        box-shadow: 10px 10px 20px darken($color: $couleur_box_shadow_grise, $amount: 30); //Box shadow plus visible
+    }
+    /*Partie qui correspond à l'animation de l'arrivée du la partie checkbox(seection plat) verte au survol du bouton*/
+    .Selection_plat {
+        //Style de la bartie selection plat
+        height: 100%;
+        /*LA partie selection plat s'étend sur toute la deuxième colomne(mais elle n'est pas visible au début)*/
+        grid-column: 2;
+        grid-row-start: 1;
+        grid-row-end: 3;
+        background-color: $couleur_tertiaire;
+        color: white;
+        opacity: 0; //Invisible avant le début de l'aniamtion(déclenché par le survol)
+        /*Faire en sorte que le check vert soit bien positionné, ne laisse pas de blanc et ne dépasse pas*/
+        overflow: hidden; //ne pas dépasser
+        position: relative; //enlever le blanc
+        top: -1px; //enlever le blanc
+        width: 110%; //enlever le blanc
+        height: 110%; //enlever le blanc
+        i {
+            //style de l'icone validé
+            font-size: 2rem;
+            padding-top: 12px;
+        }
+    }
+    &:hover>.Selection_plat {
+        //au survol du bouton la partie selection plat apparait de la droite et glisse vers la gauche
+        animation: plat_selection_apparition 1s linear forwards;
+        transform-origin: right; //appartition de la droite
+    }
+    &:hover>.Selection_plat i {
+        //icone validé qui faire un tour à 360%
+        animation: plat_selection_turn 1s linear forwards;
     }
 }
+
+
+/*Bouton commander*/
 
 .btn__commander {
     width: 50%;
@@ -128,7 +200,8 @@ i {
     @include centrer_elements;
     background: linear-gradient(175deg, $couleur_secondaire, $couleur_primaire);
     &:hover {
-        transition: 300Ms ease-in-out;
+        transition: 600ms ease-in-out;
         filter: brightness(115%);
+        box-shadow: 5px 5px 10px darken($color: $couleur_box_shadow_grise, $amount: 30); //Effet box plus visible
     }
 }

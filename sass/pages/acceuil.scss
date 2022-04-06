@@ -1,17 +1,14 @@
-header {
-    @include centrer_elements;
-}
-
 .introduction {
-    @include centrer_elements_colomnes;
+    @include centrer_elements_colomnes; //Centrer le bandeau contenant la partie explore et localisation 
 }
 
 .localisation {
-    width: 100%;
-    height: 55px;
-    @include centrer_elements;
+    //Partie localisation
+    width: 100%; //Prend tout l'ecran
+    height: 55px; //Hauteur fixe
+    @include centrer_elements; //Centrer
     background-color: #E8E8E7;
-    border-top: #E5E5E3 2px inset;
+    border-top: #E5E5E3 2px inset; //Design fidèle à la maquette
     font-size: 1.2em;
     i {
         width: 30px;
@@ -19,13 +16,12 @@ header {
 }
 
 .explore {
+    //Partie explorer
     background-color: $couleur_gris_claire;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    @include centrer_elements_colomnes;
     align-items: center;
-    padding: 0px 10% 40px 10%;
-    width: 100%;
+    padding: 0px 10% 40px 10%; //Padding sur les côtés et en bas pour respecter la maquette
+    width: 100%; //Couleur de fond qui s'étend sur tout l'écran
     h3 {
         text-align: center;
         font-size: 1.8em;
@@ -46,15 +42,17 @@ header {
 }
 
 .Fonctionnement {
+    //Partie comprenant les 3 boutons fonctionner ainsi que le titre Fonctionnement
     h2 {
         margin-top: 40px;
-        margin-left: 20px;
         margin-bottom: 20px;
+        margin-left: 5%; //Aligner avec la partie restaurant
+        width: 90%; //Aligner avec la partie restaurant
+        text-align: start; //Aligner avec la partie restaurant
     }
     .Fonctionnement_boutons {
-        @include centrer_elements;
-        flex-direction: column;
-        @include desktop-only {
+        @include centrer_elements_colomnes;//Boutons centré en colomne
+        @include desktop-only {//Bouton sur la même ligne
             flex-direction: row;
             justify-content: space-around;
         }
@@ -62,14 +60,14 @@ header {
 }
 
 .Restaurants {
-    background-color: $couleur_gris_claire;
+    background-color: $couleur_gris_claire;//Fond gris
     @include centrer_elements_colomnes;
     @include desktop-only {
         flex-direction: row;
-        flex-wrap: wrap;
+        flex-wrap: wrap;//Revenir à la ligne
     }
     width: 100%;
-    margin: auto;
+    margin: auto;//Centrer
     margin-top: 50px;
     padding-top: 50px;
     padding-bottom: 50px;

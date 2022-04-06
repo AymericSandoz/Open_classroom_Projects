@@ -1,9 +1,8 @@
-/*Spinner page acceuil*/
+/*Creation du spinner de la page acceuil*/
 
-$duree_spinner: 1.5s;
-$nbre_iteration_animation:2;
-$delai_chargement_page:$nbre_iteration_animation*$duree_spinner;
-$spinner_size:100px;
+
+/*Keyframes Spinner*/
+
 @keyframes spinner {
     0% {
         transform: rotate(0deg);
@@ -17,19 +16,20 @@ $spinner_size:100px;
 }
 
 .spin::after {
+    //creation du style du spinner
     animation: $duree_spinner linear spinner;
     animation-iteration-count: $nbre_iteration_animation;
-    animation-fill-mode: none;
+    animation-fill-mode: none; //Spinner qui disparaît à la fin de l'animation. 
+    transform: scale(0); //Spinner qui disparaît à la fin de l'animation.
     border: solid 5px #cfd0d1;
     border-bottom-color: $couleur_primaire;
     border-top-color: $couleur_secondaire;
     border-left-color: $couleur_tertiaire;
     border-radius: 50%;
-    transform: scale(0); //pour que le spinner disparaisse après chargement 
     content: "";
     height: $spinner_size;
     width: $spinner_size;
-    /*Positionner le bloc au centre + ne pas gener la page ensuite*/
+    /*Positionner le Spinner au centre + ne pas gener la page ensuite*/
     position: absolute;
     margin: auto;
     top: 50%;
@@ -37,6 +37,8 @@ $spinner_size:100px;
     margin-left: calc(-1*$spinner_size/2);
 }
 
+//TEMPS DE CHARGEMENT DE LA PAGE
+//La page ne ne se charge qu'une fois que l'animation du spinner est terminée
 @keyframes acceuil_spinner {
     0% {
         transform: translateX(-9999px);
@@ -47,11 +49,11 @@ $spinner_size:100px;
 }
 
 .page_Acceuil {
-    animation: acceuil_spinner 0ms $delai_chargement_page both;
+    animation: acceuil_spinner 0ms $delai_chargement_page both; //both permet que la page reste en place après l'aniamtion
 }
 
 
-/*Like*/
+/*Bouton Like*/
 
 @keyframes coeur {
     0% {
@@ -62,6 +64,7 @@ $spinner_size:100px;
     }
 }
 
+//Creation du style du 2eme coeur qui va progressivement se remplir
 .coeur__aRemplir {
     opacity: 0; //ne pas afficher le coeur avant le début de l'animation
     &:hover {
@@ -75,37 +78,9 @@ $spinner_size:100px;
 }
 
 
-/*Selection d'un plat*/
+/*Apparition du checkbox vert lorsqu'on selectionne un plat*/
 
-.Menu button {
-    .Selection_plat {
-        height: 100%;
-        grid-column: 2;
-        grid-row-start: 1;
-        grid-row-end: 3; //je sais pas pourquoi mais 2 ça marche pas 
-        background-color: $couleur_tertiaire;
-        color: white;
-        opacity: 0;
-        /*Faire en sorte que le check vert soit bien positionné, ne laisse pas de blanc et ne dépasse pas*/
-        overflow: hidden;
-        position: relative;
-        top: -1px;
-        width: 110%;
-        height: 110%;
-        i {
-            font-size: 2rem;
-            padding-top: 12px;
-        }
-    }
-    &:hover>.Selection_plat {
-        animation: plat_selection_apparition 1s linear forwards;
-        transform-origin: right;
-    }
-    &:hover>.Selection_plat i {
-        animation: plat_selection_turn 1s linear forwards;
-    }
-}
-
+//Le plat apparait et glisse vert la gauche
 @keyframes plat_selection_apparition {
     0% {
         opacity: 1;
@@ -117,6 +92,7 @@ $spinner_size:100px;
     }
 }
 
+//L'icône validé fait un tour à 360 degré
 @keyframes plat_selection_turn {
     0% {
         transform: rotate(0deg);
@@ -126,6 +102,7 @@ $spinner_size:100px;
     }
 }
 
+//Le texte à gauche s'eclipse progressivement
 @keyframes text_ellipsis_1 {
     0% {
         width: 100%;
@@ -135,16 +112,10 @@ $spinner_size:100px;
     }
 }
 
-@keyframes menu_apparition {
-    0% {
-        opacity: 1;
-        transform: scaleY(0);
-    }
-    100% {
-        opacity: 1;
-        transform: scaleY(1);
-    }
-}
+
+
+/*Les boutons du menu apparaissent progressivement 
+Utilisation de l'outil animation-delay pour l'apparition progressive*/
 
 @keyframes menuApparition {
     0% {

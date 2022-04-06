@@ -5,7 +5,12 @@ footer {
         color: white;
     }
     img {
-        width: 30%;
-        margin: 20px 0px 10px 40px;
+        width: 35%;
+        object-fit: cover;
+        margin: 20px 0px 5px 40px;
+        @include transformer_image_en_blanc;
+    }
+    li {
+        margin: 4px 0px 4px 0px;
     }
 }

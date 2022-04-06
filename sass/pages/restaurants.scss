@@ -1,36 +1,49 @@
 .Menu_Restaurants {
     /*Apparition progressive des cartes du restaurants*/
     button {
-        animation: menuApparition ease-in-out both;
-        animation-duration: 1000ms;
-        transform: scale(0);
-        transform-origin: top;
+        animation: menuApparition ease-in-out both; //Both permet au bouton de rester après l'animation
+        animation-duration: 1000ms; //Chaque bouton prend 1 seconde à être totalement visible
+        transform: scale(0); //Les boutons ne sont pas visible au début
+        transform-origin: top; //Les boutons se formepar le haut
     }
     @for $i from 1 to 10 {
+        //Boucle qui permet de rajouter un délai pour l'appartition de chaque bouton
         .apparition_delai-#{$i} {
-            animation-delay: #{$i/5}s;
+            animation-delay: #{$i/5}s; //Exemple :Le bouton va mettre 1/5s en plus à arriver, le bouton 2 2/5 etc...
         }
     }
     .Nom_restaurant {
         display: flex;
         justify-content: space-between;
-        width: 90%;
+        width: 85%;
         align-items: center;
         margin-top: 30px;
         @include desktop-only {
+            //Nom du restaurant et coeur à coté pour la version desktop
             width: 20%;
+            justify-content: center;
+        }
+        @include tablette-only {
+            width: 50%; //Nom du restaurant et coeur à coté pour la version tablette
             justify-content: center;
         }
         h2 {
             font-family: 'Shrikhand';
             font-size: 2em;
+            @media screen and (max-width: 300px) {
+                font-size: 1.5em; //Diminuer taille police pour tout petit écran
+            }
         }
         i {
+            //Position des coeurs
             font-size: 30px;
             position: absolute;
             left: 83%;
             @include desktop-only {
                 left: 65%;
+            }
+            @include tablette-only {
+                left: 72%;
             }
         }
     }
@@ -39,32 +52,37 @@
     width: 100%;
     background-color: $couleur_gris_claire;
     border-radius: 40px 40px 0 0;
-    margin-top: 200px;
+    margin-top: 200px; //Position du menu par rapport à l'image 
     @include desktop-only {
+        //Position du menu par rapport à l'image 
         margin-top: 600px;
     }
     @include tablette-only {
+        //Position du menu par rapport à l'image 
+        margin-top: 600px;
         margin-top: 400px;
     }
     padding-bottom: 70px;
     .Menu {
         @include desktop-only {
+            //Section ENTREEES PLATS DESSERTS en ligne sur la version desktop
             flex-direction: row;
         }
     }
     section {
+        //Boouton en colomnes
         @include centrer_elements_colomnes;
         width: 100%;
     }
     h4 {
-        width: 10%;
         margin-top: 35px;
-        position: relative;
-        right: 40%;
+        align-self: start; //Placer à gauche
+        margin-left: 7%; //Placer à gauche
         font-weight: 400;
-        border-bottom: 3px solid $couleur_tertiaire;
+        width: 10%; //Bordure verte
+        border-bottom: 3px solid $couleur_tertiaire; //Bordure verte
+        @include tablette-only {
+            width: 30px; //Modifier taille de la bordure verte qui est trop grande pour les tablettes
+        }
     }
 }
-
-
-/*2eme option pour les boutons avec css grid*/

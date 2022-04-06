@@ -1,9 +1,17 @@
 header {
+    @include centrer_elements;
     a {
         color: black;
         position: relative;
         right: 15%;
         bottom: 5px;
         font-size: 1.5em;
+    }
+    img {
+        width: 50%;
+        margin-bottom: 10px;
+        @include desktop-only {
+            width: 30%;
+        }
     }
 }

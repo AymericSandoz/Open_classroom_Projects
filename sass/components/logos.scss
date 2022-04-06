@@ -1,13 +1,2 @@
-Header {
-    img {
-        width: 50%;
-        margin-bottom: 10px;
-        @include desktop-only {
-            width: 30%;
-        }
-    }
-}
 
-.logo--blanc {
-    @include transformer_image_en_blanc;
-}
+

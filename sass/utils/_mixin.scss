@@ -1,6 +1,4 @@
-@mixin transformer_image_en_blanc {
-    filter: invert(100%) sepia(95%) saturate(19%) hue-rotate(290deg) brightness(106%) contrast(104%);
-}
+/*mixines pour gagner du temps et centrer des blocs, en ligne, ou en colomne.*/
 
 @mixin centrer_elements {
     display: flex;
@@ -15,11 +13,20 @@
     flex-direction: column;
 }
 
+
+/*Positionner un élement en bas à droite dans un bloc parent position : relative !! Note: Mixin pas forcément utile car utiliser qu'une fois*/
 @mixin position_bas_droite {
     position: absolute;
     bottom: 5%;
     right: 5%;
 }
+/*transformer une image en blac(notre logo:Oh my food) !! Note: Mixin pas forcément utile car utiliser qu'une fois*/
+@mixin transformer_image_en_blanc {
+    filter: invert(100%) sepia(95%) saturate(19%) hue-rotate(290deg) brightness(106%) contrast(104%);
+}
+
+
+/*RESPONSIVE : Mixines utilisées pour les media queries*/
 
 @mixin mobile-only {
     @media screen and (max-width: map-get($breakpoints, mobile)) {

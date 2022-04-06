@@ -1,5 +1,7 @@
 .Image--TailleMoyenne {
     width: 100%;
-    position: absolute;
-    z-index: -1;
+    position: absolute; //Faire apparaîte les images en dessous du menu
+    z-index: -1; //Faire apparaîte les images en dessous du menu
+    object-fit: cover;
 }
+

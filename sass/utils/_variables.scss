@@ -1,7 +1,18 @@
+/*Variables liées aux différentes couleurs*/
+
 $couleur_primaire: #9356DC;
 $couleur_secondaire: #FF79DA;
 $couleur_tertiaire: #99E2D0;
 $couleur_footer:#313131;
-$couleur_gris_claire:#f6f6f6;
-$couleur_box_shadow_grise:#e7e2e2;
+$couleur_gris_claire:#f6f6f6;//couleur gris clair qui revient souvent dans la maquette
+$couleur_box_shadow_grise:#e7e2e2;//couleur piur box shadow utilisées(la plupart du temps)
+
+/*Variables liées aux breakpoints*/
+
 $breakpoints: ( "mobile":750px, "tablette":950px);
+
+/*Variables liées aux animations*/
+$duree_spinner: 1.5s;//durée du spinner
+$nbre_iteration_animation:2;//nbre de tour du spinner
+$delai_chargement_page:$nbre_iteration_animation*$duree_spinner;//temps de chargement de la page
+$spinner_size:100px;//taille du spinner
