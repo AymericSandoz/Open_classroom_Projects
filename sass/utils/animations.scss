@@ -35,16 +35,17 @@
     top: 50%;
     left: 50%;
     margin-left: calc(-1*$spinner_size/2);
+    opacity: 100%;
 }
 
 //TEMPS DE CHARGEMENT DE LA PAGE
 //La page ne ne se charge qu'une fois que l'animation du spinner est terminée
 @keyframes acceuil_spinner {
     0% {
-        transform: translateX(-9999px);
+        opacity: 20%; //Permet que la page soit légèrement visible dans le fond
     }
     100% {
-        transform: translateX(0);
+        opacity: 100%;
     }
 }
 
@@ -70,10 +71,12 @@
     &:hover {
         animation: coeur 500ms ease-in-out;
         animation-fill-mode: forwards; //Faire en sorte que le coeur reste après la fin de l'animation
-        /*Couleur degradé pour les îcones(Rien compris)*/
-        background: -webkit-gradient(linear, left top, left bottom, from($couleur_secondaire), to($couleur_primaire));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        /*Couleur degradé pour les îcones !! Pas compris le rôle de webkit, même après recherche*/
+        background: linear-gradient(175deg, $couleur_secondaire, $couleur_primaire);
+        //background: -webkit-gradient(linear, left top, left bottom, from($couleur_secondaire), to($couleur_primaire)); Même effet que la ligne précedente
+        -webkit-background-clip: text; //Permet de supprimer ce qui dépasse du coeur !! Juste background clip ne fonctionne pas, je ne sais pas pourquoi
+        color: transparent;
+        //-webkit-text-fill-color: transparent;  Même effet que la ligne précédente
     }
 }
 
@@ -111,7 +114,6 @@
         width: 80%;
     }
 }
-
 
 
 /*Les boutons du menu apparaissent progressivement 

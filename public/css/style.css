@@ -39,14 +39,15 @@
   top: 50%;
   left: 50%;
   margin-left: -50px;
+  opacity: 100%;
 }
 
 @keyframes acceuil_spinner {
   0% {
-    transform: translateX(-9999px);
+    opacity: 20%;
   }
   100% {
-    transform: translateX(0);
+    opacity: 100%;
   }
 }
 .page_Acceuil {
@@ -68,10 +69,10 @@
 .coeur__aRemplir:hover {
   animation: coeur 500ms ease-in-out;
   animation-fill-mode: forwards;
-  /*Couleur degradé pour les îcones(Rien compris)*/
-  background: -webkit-gradient(linear, left top, left bottom, from(#FF79DA), to(#9356DC));
+  /*Couleur degradé pour les îcones !! Pas compris le rôle de webkit, même après recherche*/
+  background: linear-gradient(175deg, #FF79DA, #9356DC);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 /*Apparition du checkbox vert lorsqu'on selectionne un plat*/
@@ -511,14 +512,15 @@ header img {
 }
 
 /*Cursor de type pointer pour les bouttons*/
-button {
+button,
+.btn {
   cursor: pointer;
 }
 
 /*Bouttons de la partie fonctionnement*/
 .btn__fonctionnement {
   background-color: #f6f6f6;
-  border-radius: 10%;
+  border-radius: 25px;
   border: none;
   width: 90%;
   height: 50px;
@@ -533,14 +535,15 @@ button {
 }
 .btn__fonctionnement__contenu {
   display: grid;
-  grid-template-columns: 10% 15% 60%;
+  height: 100%;
+  grid-template-columns: 13% 10% 77%;
   align-items: center;
   position: relative;
-  right: 5%;
+  right: 4%;
 }
 @media screen and (min-width: 750px) and (max-width: 950px) {
   .btn__fonctionnement__contenu {
-    right: 3%;
+    right: 2%;
   }
 }
 .btn__fonctionnement i {
@@ -551,12 +554,6 @@ button {
   font-size: 1.2em;
   text-align: left;
   white-space: nowrap;
-  padding-left: 5%;
-}
-@media screen and (min-width: 750px) and (max-width: 950px) {
-  .btn__fonctionnement p {
-    padding-left: 10%;
-  }
 }
 .btn__fonctionnement:hover {
   transition: 400ms ease-in-out;
@@ -581,6 +578,11 @@ button {
     width: 30%;
   }
 }
+@media screen and (min-width: 750px) and (max-width: 950px) {
+  .btn__explorer {
+    font-size: 1.6em;
+  }
+}
 .btn__explorer--violet_degrade {
   background: linear-gradient(175deg, #FF79DA, #9356DC);
 }
@@ -588,102 +590,6 @@ button {
   transition: 400ms ease-in-out;
   filter: brightness(105%);
   box-shadow: 5px 5px 10px #343434;
-}
-
-/*Les boutons du Menu 
-En réalité ce sont plus des cartes mais j'ai chosis d'en faire des boutons*/
-.Menu button {
-  background-color: white;
-  border-radius: 20px;
-  width: 90%;
-  height: 60px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border: none;
-  box-shadow: 10px 10px 20px #e7e2e2;
-  /*Display de type GRID
-  VA permettre de décaler les éléments progressivement grâce à une animation*/
-  display: grid;
-  grid-template-columns: 80% 20%;
-  grid-auto-rows: 1fr 1fr;
-  overflow: hidden;
-  /*Partie qui correspond à l'animation de l'arrivée du la partie checkbox(seection plat) verte au survol du bouton*/
-}
-.Menu button p {
-  max-height: 30px;
-  text-align: left;
-  padding: 5px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-.Menu button p:first-child {
-  font-weight: bold;
-  font-size: 1.2em;
-}
-@media screen and (max-width: 300px) {
-  .Menu button p:first-child {
-    font-size: 0.9em;
-  }
-}
-.Menu button .accompagnement {
-  grid-column: 1;
-  grid-row: 2;
-  font-size: 1em;
-}
-@media screen and (max-width: 300px) {
-  .Menu button .accompagnement {
-    font-size: 0.7em;
-  }
-}
-.Menu button .prix {
-  width: 100%;
-  height: 100%;
-  text-align: right;
-  grid-column: 2;
-  grid-row: 2;
-  font-weight: bold;
-}
-.Menu button:hover > .prix {
-  transform: translateX(-100%);
-  transition: 1s linear;
-}
-.Menu button:hover > .accompagnement {
-  animation: text_ellipsis_1 1s linear forwards;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-.Menu button:hover {
-  transition: 300ms ease-in-out;
-  filter: brightness(105%);
-  box-shadow: 10px 10px 20px #a28e8e;
-}
-.Menu button .Selection_plat {
-  height: 100%;
-  /*LA partie selection plat s'étend sur toute la deuxième colomne(mais elle n'est pas visible au début)*/
-  grid-column: 2;
-  grid-row-start: 1;
-  grid-row-end: 3;
-  background-color: #99E2D0;
-  color: white;
-  opacity: 0;
-  /*Faire en sorte que le check vert soit bien positionné, ne laisse pas de blanc et ne dépasse pas*/
-  overflow: hidden;
-  position: relative;
-  top: -1px;
-  width: 110%;
-  height: 110%;
-}
-.Menu button .Selection_plat i {
-  font-size: 2rem;
-  padding-top: 12px;
-}
-.Menu button:hover > .Selection_plat {
-  animation: plat_selection_apparition 1s linear forwards;
-  transform-origin: right;
-}
-.Menu button:hover > .Selection_plat i {
-  animation: plat_selection_turn 1s linear forwards;
 }
 
 /*Bouton commander*/
@@ -706,6 +612,11 @@ En réalité ce sont plus des cartes mais j'ai chosis d'en faire des boutons*/
     width: 30%;
   }
 }
+@media screen and (min-width: 750px) and (max-width: 950px) {
+  .btn__commander {
+    font-size: 1.6em;
+  }
+}
 .btn__commander:hover {
   transition: 600ms ease-in-out;
   filter: brightness(115%);
@@ -724,6 +635,7 @@ i {
   border-radius: 50%;
   color: white;
   padding-top: 5px;
+  padding-left: 8px;
 }
 .nbre--violet {
   background-color: #9356DC;
@@ -799,11 +711,121 @@ i {
 .cartes__restaurants .carte-corp__titre {
   padding-left: 3%;
 }
+.cartes__restaurants .carte-corp__titre h4 {
+  font-weight: normal;
+}
 .cartes__restaurants .carte-corp i {
   position: absolute;
   left: 85%;
   align-self: center;
   font-size: 30px;
+}
+
+/*Les cartes du Menu */
+.Menu__carte {
+  cursor: pointer;
+  background-color: white;
+  border-radius: 20px;
+  width: 90%;
+  height: 60px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: none;
+  box-shadow: 10px 10px 20px #e7e2e2;
+  /*Display de type GRID
+  VA permettre de décaler les éléments progressivement grâce à une animation*/
+  display: grid;
+  grid-template-columns: 80% 20%;
+  grid-auto-rows: 1fr 1fr;
+  overflow: hidden;
+  /*Partie qui correspond à l'animation de l'arrivée du la partie checkbox(seection plat) verte au survol du bouton*/
+}
+@media screen and (min-width: 750px) and (max-width: 950px) {
+  .Menu__carte {
+    grid-template-columns: 90% 10%;
+  }
+}
+.Menu__carte p {
+  max-height: 30px;
+  text-align: left;
+  padding: 5px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.Menu__carte p:first-child {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+@media screen and (max-width: 300px) {
+  .Menu__carte p:first-child {
+    font-size: 0.9em;
+  }
+}
+.Menu__carte .accompagnement {
+  grid-column: 1;
+  grid-row: 2;
+  font-size: 1em;
+}
+@media screen and (max-width: 300px) {
+  .Menu__carte .accompagnement {
+    font-size: 0.7em;
+  }
+}
+.Menu__carte .prix {
+  width: 100%;
+  height: 100%;
+  text-align: right;
+  grid-column: 2;
+  grid-row: 2;
+  font-weight: bold;
+  position: relative;
+  bottom: 3px;
+  right: 6px;
+}
+.Menu__carte:hover > .prix {
+  transform: translateX(-100%);
+  transition: 1s linear;
+}
+.Menu__carte:hover > .accompagnement {
+  animation: text_ellipsis_1 1s linear forwards;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.Menu__carte:hover {
+  transition: 300ms ease-in-out;
+  filter: brightness(105%);
+  box-shadow: 10px 10px 20px #a28e8e;
+}
+.Menu__carte .Selection_plat {
+  height: 100%;
+  /*LA partie selection plat s'étend sur toute la deuxième colomne(mais elle n'est pas visible au début)*/
+  padding-top: 20px;
+  grid-column: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  background-color: #99E2D0;
+  color: white;
+  opacity: 0;
+  /*Faire en sorte que le check vert soit bien positionné, ne laisse pas de blanc et ne dépasse pas*/
+  overflow: visible;
+  position: relative;
+  top: -1px;
+  width: 110%;
+  height: 110%;
+}
+.Menu__carte .Selection_plat i {
+  font-size: 25px;
+  position: relative;
+  left: calc(50% - 15px);
+  height: 25px;
+}
+.Menu__carte:hover > .Selection_plat {
+  animation: plat_selection_apparition 1s linear forwards;
+  transform-origin: right;
+}
+.Menu__carte:hover > .Selection_plat i {
+  animation: plat_selection_turn 1s linear forwards;
 }
 
 .introduction {
@@ -911,7 +933,7 @@ i {
   margin-top: 200px;
   padding-bottom: 70px;
 }
-.Menu_Restaurants button {
+.Menu_Restaurants .Menu__carte {
   animation: menuApparition ease-in-out both;
   animation-duration: 1000ms;
   transform: scale(0);
@@ -944,6 +966,9 @@ i {
 .Menu_Restaurants .apparition_delai-9 {
   animation-delay: 1.8s;
 }
+.Menu_Restaurants .apparition_delai-10 {
+  animation-delay: 2s;
+}
 .Menu_Restaurants .Nom_restaurant {
   display: flex;
   justify-content: space-between;
@@ -963,13 +988,13 @@ i {
     justify-content: center;
   }
 }
-.Menu_Restaurants .Nom_restaurant h2 {
+.Menu_Restaurants .Nom_restaurant h1 {
   font-family: "Shrikhand";
-  font-size: 2em;
+  font-size: 1.6em;
 }
 @media screen and (max-width: 300px) {
-  .Menu_Restaurants .Nom_restaurant h2 {
-    font-size: 1.5em;
+  .Menu_Restaurants .Nom_restaurant h1 {
+    font-size: 1.3em;
   }
 }
 .Menu_Restaurants .Nom_restaurant i {
@@ -997,6 +1022,13 @@ i {
     margin-top: 600px;
     margin-top: 400px;
   }
+}
+.Menu_Restaurants .Menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
 }
 @media screen and (min-width: 950px) {
   .Menu_Restaurants .Menu {

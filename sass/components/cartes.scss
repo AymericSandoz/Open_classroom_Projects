@@ -61,7 +61,10 @@
         color: black;
         position: relative;
         &__titre {
-            padding-left: 3%;//Design fidèle à la maquette
+            padding-left: 3%; //Design fidèle à la maquette
+            h4 {
+                font-weight: normal;
+            }
         }
         i {
             position: absolute;
@@ -69,5 +72,116 @@
             align-self: center;
             font-size: 30px;
         }
+    }
+}
+
+
+/*Les cartes du Menu */
+
+.Menu__carte {
+    cursor: pointer;
+    background-color: white;
+    border-radius: 20px;
+    width: 90%;
+    height: 60px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+    box-shadow: 10px 10px 20px $couleur_box_shadow_grise;
+    /*Display de type GRID
+    VA permettre de décaler les éléments progressivement grâce à une animation*/
+    display: grid;
+    grid-template-columns: 80% 20%;
+    @include tablette-only {
+        grid-template-columns: 90% 10%; //Pour que la l'animation checkbox verte ne soit pas trop grande
+    }
+    grid-auto-rows: 1fr 1fr;
+    overflow: hidden; //enlever la partie du bouton vert qui dépasse
+    p {
+        max-height: 30px; //Ne pas agrandir la hauteur des paragraphes
+        text-align: left;
+        padding: 5px;
+        white-space: nowrap; //ne pas revenir a la ligne
+        text-overflow: ellipsis; //texte qui ne peut pas être affiché remplacé par "..."
+        overflow: hidden;
+    }
+    p:first-child {
+        font-weight: bold;
+        font-size: 1.2em;
+        @media screen and (max-width: 300px) {
+            font-size: 0.9em; //Diminuer taille police pour tout petit écran
+        }
+    }
+    .accompagnement {
+        //positionnement de la partie accompagnement au sein de la GRID grâce à grid-colomn et grid-row
+        grid-column: 1;
+        grid-row: 2;
+        font-size: 1em;
+        @media screen and (max-width: 300px) {
+            font-size: 0.7em; //Diminuer taille police pour tout petit écran
+        }
+    }
+    .prix {
+        //positionnement du prix.............""""
+        width: 100%;
+        height: 100%;
+        text-align: right;
+        grid-column: 2;
+        grid-row: 2;
+        font-weight: bold;
+        position: relative;
+        bottom: 3px;
+        right: 6px;
+    }
+    &:hover>.prix {
+        //Au survol des bouton le prix se décale vers la gauche de 100%
+        transform: translateX(-100%);
+        transition: 1s linear;
+    }
+    &:hover>.accompagnement {
+        animation: text_ellipsis_1 1s linear forwards;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    &:hover {
+        //Style des boutons au survol
+        transition: 300ms ease-in-out;
+        filter: brightness(105%); //Eclaircit
+        box-shadow: 10px 10px 20px darken($color: $couleur_box_shadow_grise, $amount: 30); //Box shadow plus visible
+    }
+    /*Partie qui correspond à l'animation de l'arrivée du la partie checkbox(seection plat) verte au survol du bouton*/
+    .Selection_plat {
+        //Style de la bartie selection plat
+        height: 100%;
+        /*LA partie selection plat s'étend sur toute la deuxième colomne(mais elle n'est pas visible au début)*/
+        padding-top: 20px; //permet de centrer l'icone 
+        grid-column: 2;
+        grid-row-start: 1;
+        grid-row-end: 3;
+        background-color: $couleur_tertiaire;
+        color: white;
+        opacity: 0; //Invisible avant le début de l'aniamtion(déclenché par le survol)
+        /*Faire en sorte que le check vert soit bien positionné, ne laisse pas de blanc et ne dépasse pas*/
+        overflow: visible; //ne pas dépasser
+        position: relative; //enlever le blanc
+        top: -1px; //enlever le blanc
+        width: 110%; //enlever le blanc
+        height: 110%; //enlever le blanc
+        i {
+            //style de l'icone validé
+            font-size: 25px;
+            position: relative;
+            left: calc(50% - 15px);
+            height: 25px;
+        }
+    }
+    &:hover>.Selection_plat {
+        //au survol du bouton la partie selection plat apparait de la droite et glisse vers la gauche
+        animation: plat_selection_apparition 1s linear forwards;
+        transform-origin: right; //appartition de la droite
+    }
+    &:hover>.Selection_plat i {
+        //icone validé qui faire un tour à 360%
+        animation: plat_selection_turn 1s linear forwards;
     }
 }

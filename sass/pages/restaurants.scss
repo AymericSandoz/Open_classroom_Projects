@@ -1,15 +1,15 @@
 .Menu_Restaurants {
     /*Apparition progressive des cartes du restaurants*/
-    button {
+    .Menu__carte {
         animation: menuApparition ease-in-out both; //Both permet au bouton de rester après l'animation
         animation-duration: 1000ms; //Chaque bouton prend 1 seconde à être totalement visible
         transform: scale(0); //Les boutons ne sont pas visible au début
         transform-origin: top; //Les boutons se formepar le haut
     }
-    @for $i from 1 to 10 {
+    @for $i from 1 to 11 {
         //Boucle qui permet de rajouter un délai pour l'appartition de chaque bouton
         .apparition_delai-#{$i} {
-            animation-delay: #{$i/5}s; //Exemple :Le bouton va mettre 1/5s en plus à arriver, le bouton 2 2/5 etc...
+            animation-delay: #{calc($i/5)}s; //Exemple :Le bouton va mettre 1/5s en plus à arriver, le bouton 2 2/5 etc...
         }
     }
     .Nom_restaurant {
@@ -27,11 +27,11 @@
             width: 50%; //Nom du restaurant et coeur à coté pour la version tablette
             justify-content: center;
         }
-        h2 {
+        h1 {
             font-family: 'Shrikhand';
-            font-size: 2em;
+            font-size: 1.6em;
             @media screen and (max-width: 300px) {
-                font-size: 1.5em; //Diminuer taille police pour tout petit écran
+                font-size: 1.3em; //Diminuer taille police pour tout petit écran
             }
         }
         i {
@@ -64,6 +64,8 @@
     }
     padding-bottom: 70px;
     .Menu {
+        @include centrer_elements_colomnes;
+        width: 100%;
         @include desktop-only {
             //Section ENTREEES PLATS DESSERTS en ligne sur la version desktop
             flex-direction: row;
