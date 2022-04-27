@@ -51,8 +51,9 @@
         text-align: start; //Aligner avec la partie restaurant
     }
     .Fonctionnement_boutons {
-        @include centrer_elements_colomnes;//Boutons centré en colomne
-        @include desktop-only {//Bouton sur la même ligne
+        @include centrer_elements_colomnes; //Boutons centré en colomne
+        @include desktop-only {
+            //Bouton sur la même ligne
             flex-direction: row;
             justify-content: space-around;
         }
@@ -60,14 +61,14 @@
 }
 
 .Restaurants {
-    background-color: $couleur_gris_claire;//Fond gris
+    background-color: $couleur_gris_claire; //Fond gris
     @include centrer_elements_colomnes;
     @include desktop-only {
         flex-direction: row;
-        flex-wrap: wrap;//Revenir à la ligne
+        flex-wrap: wrap; //Revenir à la ligne
     }
     width: 100%;
-    margin: auto;//Centrer
+    margin: auto; //Centrer
     margin-top: 50px;
     padding-top: 50px;
     padding-bottom: 50px;

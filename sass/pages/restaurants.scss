@@ -20,16 +20,24 @@
         margin-top: 30px;
         @include desktop-only {
             //Nom du restaurant et coeur à coté pour la version desktop
-            width: 20%;
+            width: 90%;
             justify-content: center;
         }
         @include tablette-only {
-            width: 50%; //Nom du restaurant et coeur à coté pour la version tablette
-            justify-content: center;
+            width: 90%; //Nom du restaurant et coeur à coté pour la version tablette
         }
         h1 {
             font-family: 'Shrikhand';
             font-size: 1.6em;
+            @include tablette-only {
+                font-size: 2rem;
+            }
+            @include tablette-only {
+                font-size: 3em;
+            }
+            @include desktop-only {
+                font-size: 3em;
+            }
             @media screen and (max-width: 300px) {
                 font-size: 1.3em; //Diminuer taille police pour tout petit écran
             }
@@ -40,10 +48,12 @@
             position: absolute;
             left: 83%;
             @include desktop-only {
-                left: 65%;
+                left: 80%;
+                font-size: 3em;
             }
             @include tablette-only {
-                left: 72%;
+                left: 80%;
+                font-size: 3em;
             }
         }
     }
@@ -69,6 +79,9 @@
         @include desktop-only {
             //Section ENTREEES PLATS DESSERTS en ligne sur la version desktop
             flex-direction: row;
+        }
+        @include desktop-only {
+            align-items: flex-start; //La note enchantée contient 10 cartes, permet de les aligner par le haut
         }
     }
     section {
