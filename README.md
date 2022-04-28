@@ -14,7 +14,8 @@ utilisateurs de composer leur propre menu et réduire leur temps d’attente dan
 restaurants car leur menu est préparé à l’avance. Plus de perte de temps à consulter la carte
 !
 
-
+## Lien vers page d'acceuil du site
+https://aymericsandoz.github.io/Open_classroom_Projects/index.html
 
 ## Compétences évaluées
 
