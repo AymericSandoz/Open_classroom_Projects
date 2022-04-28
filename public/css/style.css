@@ -34,7 +34,7 @@
   height: 100px;
   width: 100px;
   /*Positionner le Spinner au centre + ne pas gener la page ensuite*/
-  position: absolute;
+  position: fixed;
   margin: auto;
   top: 50%;
   left: 50%;
@@ -69,7 +69,7 @@
 .coeur__aRemplir:hover {
   animation: coeur 500ms ease-in-out;
   animation-fill-mode: forwards;
-  /*Couleur degradé pour les îcones !! Pas compris le rôle de webkit, même après recherche*/
+  /*Couleur degradé pour les îcones !! */
   background: linear-gradient(175deg, #FF79DA, #9356DC);
   -webkit-background-clip: text;
   color: transparent;
@@ -748,6 +748,7 @@ i {
   max-height: 30px;
   text-align: left;
   padding: 5px;
+  padding-left: 13px;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;

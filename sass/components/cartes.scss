@@ -101,6 +101,7 @@
         max-height: 30px; //Ne pas agrandir la hauteur des paragraphes
         text-align: left;
         padding: 5px;
+        padding-left: 13px;
         white-space: nowrap; //ne pas revenir a la ligne
         text-overflow: ellipsis; //texte qui ne peut pas être affiché remplacé par "..."
         overflow: hidden;
