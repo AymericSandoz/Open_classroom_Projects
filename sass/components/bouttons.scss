@@ -36,6 +36,12 @@ button,
     i {
         font-size: 15px;
     }
+    .btn__fonctionnement__icone {
+        color: grey;
+    }
+    &:hover .btn__fonctionnement__icone {
+        color: $couleur_primaire;
+    }
     p {
         font-weight: bold;
         font-size: 1.2em;
@@ -45,7 +51,8 @@ button,
     &:hover {
         //Effet de transition
         transition: 400ms ease-in-out;
-        filter: brightness(103%); //Le bouton s'éclaircit au survol
+        filter: brightness(99%); //filter :darken($color: $couleur_gris_claire, $amount: 100); //Le bouton s'éclaircit au survol
+        //filter: darken($couleur_gris_claire, 30%); 
         box-shadow: 5px 5px 10px darken($color: $couleur_box_shadow_grise, $amount: 30); //Effet box shadow plus visible
     }
 }

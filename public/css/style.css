@@ -548,6 +548,12 @@ button,
 .btn__fonctionnement i {
   font-size: 15px;
 }
+.btn__fonctionnement .btn__fonctionnement__icone {
+  color: grey;
+}
+.btn__fonctionnement:hover .btn__fonctionnement__icone {
+  color: #9356DC;
+}
 .btn__fonctionnement p {
   font-weight: bold;
   font-size: 1.2em;
@@ -556,7 +562,7 @@ button,
 }
 .btn__fonctionnement:hover {
   transition: 400ms ease-in-out;
-  filter: brightness(103%);
+  filter: brightness(99%);
   box-shadow: 5px 5px 10px #a28e8e;
 }
 
@@ -635,13 +641,7 @@ i {
   color: white;
   padding-top: 5px;
   padding-left: 8px;
-}
-.nbre--violet {
   background-color: #9356DC;
-}
-
-.violet {
-  color: #9356DC;
 }
 
 /*Création des cartes des différents restaurants*/

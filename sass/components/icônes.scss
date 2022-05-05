@@ -13,11 +13,5 @@ i {
     color: white;
     padding-top: 5px;
     padding-left: 8px;
-    &--violet {
-        background-color: $couleur_primaire;
-    }
-}
-
-.violet {
-    color: $couleur_primaire;
+    background-color: $couleur_primaire;
 }
